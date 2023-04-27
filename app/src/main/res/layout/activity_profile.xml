@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProfileActivity">
+
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="300dp"
+        android:layout_height="66dp"
+        android:fontFamily="serif"
+        android:text="My profile"
+        android:textColor="@color/purple_700"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="50dp"/>
+
+    <Button
+        android:id="@+id/personalInfoBtnProfile"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginBottom="5dp"
+        android:backgroundTint="@color/white"
+        android:fontFamily="sans-serif-condensed-light"
+        android:gravity="start"
+        android:text="Personal info"
+        android:textAlignment="viewStart"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:layout_below="@+id/textView7"/>
+    <Button
+        android:id="@+id/changePassBtnProfile"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginBottom="5dp"
+        android:backgroundTint="@color/white"
+        android:fontFamily="sans-serif-condensed-light"
+        android:gravity="start"
+        android:text="Change password"
+        android:textAlignment="viewStart"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:layout_below="@+id/personalInfoBtnProfile"/>
+
+    <Button
+        android:id="@+id/logoutBtnProfile"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginBottom="5dp"
+        android:backgroundTint="@color/white"
+        android:fontFamily="sans-serif-condensed-light"
+        android:gravity="start"
+        android:text="Logout"
+        android:textAlignment="viewStart"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:layout_below="@+id/changePassBtnProfile" />
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</RelativeLayout>
