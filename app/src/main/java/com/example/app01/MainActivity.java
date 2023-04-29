@@ -92,6 +92,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                Intent intent9 = new Intent(MainActivity.this, SettingsMenuActivity.class);
                startActivity(intent9);
                break;
+            case R.id.nav_music:
+                Intent intent5 = new Intent(MainActivity.this, MusicActivity.class);
+                startActivity(intent5);
+                break;
            case  R.id.nav_profile:
                Intent intent2 = new Intent(MainActivity.this, ProfileActivity.class);
                startActivity(intent2);

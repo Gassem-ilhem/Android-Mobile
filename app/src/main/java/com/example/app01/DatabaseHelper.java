@@ -15,7 +15,7 @@ import androidx.annotation.Nullable;
 import java.util.ArrayList;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
-    private ArrayList<Data> list = new ArrayList<>();
+
     public static final String DBNAME = "Login2.db";
     // Database Version
     private static final int DATABASE_VERSION = 3;
@@ -142,88 +142,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             productRow.clear();
         }
     }
-
-    //insert
-    public boolean add_product(String name, float price, int quantity){
-        MyDB = getWritableDatabase();
-        ContentValues productRow = new ContentValues();
-
-            productRow.put("product_name", name);
-            productRow.put("product_price", price);
-            productRow.put("product_quantity", quantity);
-            MyDB.insert("product", null, productRow);
-            MyDB.close();
-            return true; //product is added
-    }
-
-    //update
-    public void update_product(int id,String name, float price, int quantity) {
-        MyDB = this.getWritableDatabase();
-
-        ContentValues product = new ContentValues();
-        product.put("product_name", name);
-        product.put("product_price", price);
-        product.put("product_quantity", quantity);
-        String[] arg = {String.valueOf(id)};
-        MyDB.update("product", product, "product_id like ?",arg);
-        MyDB.close();
-    }
-    //delete
-    public Boolean deleteProduct(String product_name){
-        SQLiteDatabase DBW = this.getWritableDatabase();
-        Cursor cursor = DBW.rawQuery("Select * from product where product_name = ?",new String[]{product_name});
-        if (cursor.getCount()>0){
-            long l =DBW.delete("product","product_name = ?",new String[]{product_name});
-            if (l == -1){
-                return false;
-            }else {
-                return true;
-            }
-        }else {
-            return false;
-        }
-    }
-
-    //read
-
-    public Cursor get_product_data(String product_name) {
-        SQLiteDatabase MyDatabase = this.getWritableDatabase();
-        Cursor cursor = MyDatabase.rawQuery("Select * from product where product_name = ?", new String[]{product_name});
-
-        return cursor;
-    }
-
-    public ArrayList<Data> readData(){
-        int id,quantity;
-        String name;
-        float price;
-        SQLiteDatabase DBR = this.getReadableDatabase();
-        Cursor cursor = DBR.rawQuery("Select * from product",null);
-        cursor.moveToFirst();
-
-        if (cursor.moveToFirst()){
-            do {
-                id = cursor.getInt(0);
-                name =cursor.getString(1);
-                price = cursor.getFloat(2);
-                quantity = cursor.getInt(3);
-                list.add(new Data(id,name,quantity,price));
-            }while (cursor.moveToNext());
-        }
-        DBR.close();
-        return list;
-    }
-
-
-    public Cursor fetch() {
-        String[] columns = new String[] { "product_id", "product_name", "product_price", "product_quantity" };
-        Cursor cursor = MyDB.query("product", columns, null, null, null, null, null);
-        if (cursor != null) {
-            cursor.moveToFirst();
-        }
-        return cursor;
-    }
-
 
 
 }

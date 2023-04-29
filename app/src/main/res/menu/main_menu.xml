@@ -21,6 +21,10 @@
             android:icon="@drawable/nav_toy"
             android:title="Toy"/>
         <item
+            android:id="@+id/nav_music"
+            android:icon="@drawable/music"
+            android:title="Music"/>
+        <item
             android:id="@+id/nav_share"
             android:icon="@drawable/nav_share"
             android:title="Share" />

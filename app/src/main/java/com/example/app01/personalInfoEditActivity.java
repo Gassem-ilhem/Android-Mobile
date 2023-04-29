@@ -54,7 +54,7 @@ public class personalInfoEditActivity extends AppCompatActivity {
                 db.update_personalInfo(mail,nameTxt.getText().toString(),emailTxt.getText().toString(),phoneTxt.getText().toString());
 
                 // displaying a toast message that our course has been updated.
-                Toast.makeText(personalInfoEditActivity.this, "Course Updated..", Toast.LENGTH_SHORT).show();
+                Toast.makeText(personalInfoEditActivity.this, "Profile Updated..", Toast.LENGTH_SHORT).show();
                 // launching our main activity.
                 Intent i = new Intent(personalInfoEditActivity.this, personalInfoActivity.class);
                 startActivity(i);

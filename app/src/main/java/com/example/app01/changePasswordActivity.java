@@ -62,14 +62,14 @@ public class changePasswordActivity extends AppCompatActivity {
 
 
         if (!newPass.equals(confirmPass))
-            Toast.makeText(getApplicationContext(), "passwords doesn't match", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Passwords Doesn't Match", Toast.LENGTH_LONG).show();
 
 
      if ( currentPass.equals(varaible1)) {
 
             db.reset_password(varaible2,newPasstxt.getText().toString());
 
-         Toast.makeText(getApplicationContext(), "password updated!", Toast.LENGTH_LONG).show();
+         Toast.makeText(getApplicationContext(), "Password Updated!", Toast.LENGTH_LONG).show();
             Intent intent = new Intent(changePasswordActivity.this, MainActivity.class);
 
             startActivity(intent);
