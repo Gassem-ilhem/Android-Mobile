@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment;
 import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -123,12 +124,32 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                break;
 
            case R.id.nav_logout:
-               //  Toast.makeText(this, "Logout!", Toast.LENGTH_SHORT).show();
-               Intent intent1 = new Intent(MainActivity.this, LoginActivity.class);
+
+
+               // Get the shared preferences object
+               SharedPreferences sharedPreferences = getSharedPreferences("MySharedPref", MODE_PRIVATE);
+
+               // Get the editor object
+               SharedPreferences.Editor editor = sharedPreferences.edit();
+
+               // Remove the email key-value pair from shared preferences
+               editor.remove("email");
+
+               // Commit the changes
+               editor.commit();
+
+               // Redirect the user to the login activity
+               Intent intent1 = new Intent(getApplicationContext(), LoginActivity.class);
+               startActivity(intent1);
+               finish(); // Close the current activity
+               break;
+
+
+            /*   Intent intent1 = new Intent(MainActivity.this, LoginActivity.class);
                intent1.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                startActivity(intent1);
-               finish();
-               break;
+               finish();*/
+
 
        }
         drawerLayout.closeDrawer(GravityCompat.START);

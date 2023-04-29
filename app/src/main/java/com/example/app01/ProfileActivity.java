@@ -4,10 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
+
 
 public class ProfileActivity extends AppCompatActivity {
     Button personalInfoBtn,changePassBtn,logoutBtn;
@@ -53,10 +54,22 @@ public class ProfileActivity extends AppCompatActivity {
         logoutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ProfileActivity.this, LoginActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                startActivity(intent);
-                finish();
+                // Get the shared preferences object
+                SharedPreferences sharedPreferences = getSharedPreferences("MySharedPref", MODE_PRIVATE);
+
+                // Get the editor object
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+
+                // Remove the email key-value pair from shared preferences
+                editor.remove("email");
+
+                // Commit the changes
+                editor.commit();
+
+                // Redirect the user to the login activity
+                Intent intent1 = new Intent(getApplicationContext(), LoginActivity.class);
+                startActivity(intent1);
+                finish(); // Close the current activity
 
             }
         });

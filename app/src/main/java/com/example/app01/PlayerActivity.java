@@ -264,4 +264,15 @@ public class PlayerActivity extends AppCompatActivity {
         time+=sec;
         return time;
     }
+
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if (mediaPlayer != null) {
+            mediaPlayer.pause();
+            mediaPlayer.seekTo(0);
+        }
+    }
+
 }
